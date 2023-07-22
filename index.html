@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Fila Capsule 2023 Q3</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+      text-align: center;
+    }
+    .page {
+      display: none;
+    }
+    .active {
+      display: block;
+    }
+    button {
+      margin: 10px;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    /* Responsive styles for mobile devices */
+    @media only screen and (max-width: 600px) {
+      body {
+        margin: 10px;
+      }
+      h1 {
+        font-size: 24px;
+      }
+      .page {
+        margin-bottom: 20px;
+      }
+      button {
+        margin: 5px;
+        padding: 5px 10px;
+        font-size: 14px;
+      }
+    }
+    .bottom-navigation {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #f9f9f9;
+      padding: 10px;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>The Fila Capsule</h1>
+  
+  <!-- Navigation Buttons -->
+  <div>
+    <button onclick="showPage(1)">First</button>
+    <button onclick="goToPage(-1)">Previous</button>
+    <button onclick="goToPage(1)">Next</button>
+    <button onclick="showPage(10)">Last</button>
+  </div>
+
+  <div class="bottom-navigation" id="bottomNav">
+    <button onclick="showPage(1)">First</button>
+    <button onclick="goToPage(-1)">Previous</button>
+    <button onclick="goToPage(1)">Next</button>
+    <button onclick="showPage(10)">Last</button>
+  </div>
+
+  <!-- Pages -->
+  <div class="page" id="page1">
+    <h4>Page 1</h4>
+    <img src="tfc_2023_q3_page1.jpg" alt="Page 1">
+  </div>
+
+  <div class="page" id="page2">
+    <h4>Page 2</h4>
+    <img src="tfc_2023_q3_page2.jpg" alt="Page 2">
+  </div>
+
+  <div class="page" id="page3">
+    <h4>Page 3</h4>
+    <img src="tfc_2023_q3_page3.jpg" alt="Page 3">
+  </div>
+
+  <div class="page" id="page4">
+    <h4>Page 4</h4>
+    <img src="tfc_2023_q3_page4.jpg" alt="Page 4">
+  </div>
+
+  <div class="page" id="page5">
+    <h4>Page 5</h4>
+    <img src="tfc_2023_q3_page5.jpg" alt="Page 5">
+  </div>
+
+  <div class="page" id="page6">
+    <h4>Page 6</h4>
+    <img src="tfc_2023_q3_page6.jpg" alt="Page 6">
+  </div>
+
+  <div class="page" id="page7">
+    <h4>Page 7</h4>
+    <img src="tfc_2023_q3_page7.jpg" alt="Page 7">
+  </div>
+
+  <div class="page" id="page8">
+    <h4>Page 8</h4>
+    <img src="tfc_2023_q3_page8.jpg" alt="Page 8">
+  </div>
+
+  <div class="page" id="page9">
+    <h4>Page 9</h4>
+    <img src="tfc_2023_q3_page9.jpg" alt="Page 9">
+  </div>
+
+  <div class="page" id="page10">
+    <h4>Page 10 - Last Page</h4>
+    <img src="tfc_2023_q3_page10.jpg" alt="Page 10">
+  </div>
+
+  <!-- Add more "page" divs for pages 3 to 10 with their respective images -->
+
+  <script>
+    let currentPage = 0;
+    const totalPages = 10; // Change this value to match the total number of pages
+    const bottomNav = document.getElementById('bottomNav');
+
+    function showPage(pageNumber) {
+      // Hide all pages
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(page => page.classList.remove('active'));
+
+      // Show the selected page
+      const selectedPage = document.getElementById(`page${pageNumber}`);
+      selectedPage.classList.add('active');
+      currentPage = pageNumber;
+    }
+
+    function goToPage(step) {
+      const nextPage = currentPage + step;
+
+      if (nextPage >= 1 && nextPage <= totalPages) {
+        showPage(nextPage);
+      }
+    }
+
+    showPage(1);
+
+    document.addEventListener('scroll', function() {
+      if (window.scrollY === 0) {
+        bottomNav.style.display = 'none';
+      } else {
+        bottomNav.style.display = 'flex';
+      }
+    });
+  </script>
+</body>
+</html>
