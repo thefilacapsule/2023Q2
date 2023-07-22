@@ -59,13 +59,6 @@
   <h1>The Fila Capsule</h1>
   
   <!-- Navigation Buttons -->
-  <div>
-    <button onclick="showPage(1)">First</button>
-    <button onclick="goToPage(-1)">Previous</button>
-    <button onclick="goToPage(1)">Next</button>
-    <button onclick="showPage(10)">Last</button>
-  </div>
-
   <div class="bottom-navigation" id="bottomNav">
     <button onclick="showPage(1)">First</button>
     <button onclick="goToPage(-1)">Previous</button>
@@ -151,14 +144,6 @@
     }
 
     showPage(1);
-
-    document.addEventListener('scroll', function() {
-      if (window.scrollY === 0) {
-        bottomNav.style.display = 'none';
-      } else {
-        bottomNav.style.display = 'flex';
-      }
-    });
   </script>
 </body>
 </html>
